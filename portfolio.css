@@ -126,6 +126,11 @@ li a:hover{
     box-sizing: border-box;
     padding: 10px;
 }
+.p3{
+  width: 1000px!important;
+  position: relative;
+  left: 300px!important;
+}
 .about{
     width: 500px;
     position: relative;
