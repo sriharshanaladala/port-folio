@@ -1,0 +1,1377 @@
+function showMenuPanel(e, a) {
+   e.preventDefault();
+   // console.log(a);
+   let elem = e.currentTarget || e.target;
+   if (elem) {
+      elem.classList.add('show');
+   }
+}
+function hideMenuPanel(e, a) {
+   e.preventDefault();
+   let elem = e.currentTarget || e.target;
+   if (elem) {
+      elem.classList.remove('show');
+   }
+}
+function hideMenu() {
+   const name = document.querySelector(".show");
+   if (name) {
+      name.classList.remove('show');
+   }
+}
+function errImage(e) {
+   if (e) {
+      e.onerror = null;
+      if (e.parentElement) {
+         e.parentElement.children[0].srcset = e.srcset;
+      }
+   }
+}
+
+function fetchConfig() {
+   let url = "";
+   var href = window.location.href;
+   if (href && href.includes('preprod.lightxeditor.com')) {
+      url = "https://static.lightxeditor.com/preprod/assets/json/canvas-layout-ui.config.json";
+   }
+   else if (href && href.includes('lightxeditor.com')) {
+      url = "https://static.lightxeditor.com/assets/json/canvas-layout-ui.config.json";
+   }
+   else {
+      url = "assets/json/canvas-layout-ui.config.json";
+   }
+
+   var xhr = new XMLHttpRequest();
+   xhr.open("GET", url);
+   xhr.setRequestHeader("Content-Type", "application/json");
+   xhr.onerror = function () { reject("Network error.") };
+   xhr.onload = function () {
+      if (xhr.status === 200) {
+         window['ANDOR_SETTINGS'] = JSON.parse(xhr.response);
+      }
+      else {
+         console.log("Loading error:" + xhr.statusText);
+      }
+   };
+   xhr.send();
+}
+
+
+//fetchConfig();
+
+window['ANDOR_SETTINGS']= {
+   "SOCIAL_FORMATS":{
+      "1":{
+         "title":"YouTube Cover",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":2560,
+         "height":1440
+      },
+      "2":{
+         "title":"Facebook Cover",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":1600,
+         "height":900
+      },
+      "3":{
+         "title":"Twitter Post",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":1600,
+         "height":900
+      },
+      "4":{
+         "title":"Youtube Thumbnail",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":1280,
+         "height":720
+      },
+      "5":{
+         "title":"Wide screen",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":1920,
+         "height":1080
+      },
+      "6":{
+         "title":"Instagram Post",
+         "format":2,
+         "wRatio":1,
+         "hRatio":1,
+         "width":1080,
+         "height":1080
+      },
+      "7":{
+         "title":"Facebook Square",
+         "format":2,
+         "wRatio":1,
+         "hRatio":1,
+         "width":1200,
+         "height":1200
+      },
+      "8":{
+         "title":"Square",
+         "format":2,
+         "wRatio":1,
+         "hRatio":1,
+         "width":1080,
+         "height":1080
+      },
+      "9":{
+         "title":"Instagram Story",
+         "format":3,
+         "wRatio":9,
+         "hRatio":16,
+         "width":1080,
+         "height":1920
+      },
+      "10":{
+         "title":"WhatsApp Status",
+         "format":3,
+         "wRatio":9,
+         "hRatio":16,
+         "width":1080,
+         "height":1920
+      },
+      "11":{
+         "title":"Phone",
+         "format":3,
+         "wRatio":9,
+         "hRatio":16,
+         "width":1080,
+         "height":1920
+      },
+      "12":{
+         "title":"Slide",
+         "format":4,
+         "wRatio":4,
+         "hRatio":3,
+         "width":2048,
+         "height":1536
+      },
+      "13":{
+         "title":"Standard",
+         "format":5,
+         "wRatio":3,
+         "hRatio":4,
+         "width":1536,
+         "height":2048
+      },
+      "14":{
+         "title":"Landscape",
+         "format":6,
+         "wRatio":3,
+         "hRatio":2,
+         "width":2048,
+         "height":1365
+      },
+      "15":{
+         "title":"Pinterest",
+         "format":7,
+         "wRatio":2,
+         "hRatio":3,
+         "width":1000,
+         "height":1500
+      },
+      "16":{
+         "title":"Portrait",
+         "format":7,
+         "wRatio":2,
+         "hRatio":3,
+         "width":1000,
+         "height":1500
+      },
+      "17":{
+         "title":"Instagram Portrait ",
+         "format":8,
+         "wRatio":4,
+         "hRatio":5,
+         "width":1080,
+         "height":1350
+      },
+      "18":{
+         "title":"Instagram Landscape",
+         "format":9,
+         "wRatio":1080,
+         "hRatio":566,
+         "width":1080,
+         "height":566
+      },
+      "19":{
+         "title":"Facebook Ad",
+         "format":10,
+         "wRatio":1200,
+         "hRatio":628,
+         "width":1200,
+         "height":628
+      },
+      "20":{
+         "title":"Poster",
+         "format":11,
+         "wRatio":11,
+         "hRatio":17,
+         "width":1650,
+         "height":2550
+      },
+      "21":{
+         "title":"Card",
+         "format":12,
+         "wRatio":5,
+         "hRatio":7,
+         "width":1500,
+         "height":2100
+      },
+      "22":{
+         "title":"A3",
+         "format":12,
+         "wRatio":5,
+         "hRatio":7,
+         "width":1754,
+         "height":2480
+      },
+      "23":{
+         "title":"A4",
+         "format":12,
+         "wRatio":5,
+         "hRatio":7,
+         "width":2480,
+         "height":3508
+      },
+      "24":{
+         "title":"A5",
+         "format":12,
+         "wRatio":5,
+         "hRatio":7,
+         "width":1748,
+         "height":2480
+      },
+      "25":{
+         "title":"Letter",
+         "format":13,
+         "wRatio":17,
+         "hRatio":22,
+         "width":2550,
+         "height":3300
+      },
+      "26":{
+         "title":"Custom",
+         "format":0,
+         "wRatio":0,
+         "hRatio":0,
+         "width":0,
+         "height":0
+      },
+      "27":{
+         "title":"Facebook Video",
+         "format":2,
+         "wRatio":1,
+         "hRatio":1,
+         "width":1080,
+         "height":1080
+      },
+      "28":{
+         "title":"Instagram Video",
+         "format":2,
+         "wRatio":1,
+         "hRatio":1,
+         "width":1080,
+         "height":1080
+      },
+      "29":{
+         "title":"Linkedin Video",
+         "format":2,
+         "wRatio":1,
+         "hRatio":1,
+         "width":1080,
+         "height":1080
+      },
+      "30":{
+         "title":"Linkedin Video Ad",
+         "format":2,
+         "wRatio":1,
+         "hRatio":1,
+         "width":1080,
+         "height":1080
+      },
+      "31":{
+         "title":"Mobile Video",
+         "format":3,
+         "wRatio":9,
+         "hRatio":16,
+         "width":1080,
+         "height":1920
+      },
+      "32":{
+         "title":"Tiktok Video",
+         "format":3,
+         "wRatio":9,
+         "hRatio":16,
+         "width":1080,
+         "height":1920
+      },
+      "33":{
+         "title":"Whatsapp Status Video",
+         "format":3,
+         "wRatio":9,
+         "hRatio":16,
+         "width":1080,
+         "height":1920
+      },
+      "34":{
+         "title":"Youtube Video",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":1920,
+         "height":1080
+      },
+      "35":{
+         "title":"Youtube Video Ad",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":1920,
+         "height":1080
+      },
+      "36":{
+         "title":"Slideshow Video",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":1920,
+         "height":1080
+      },
+      "37":{
+         "title":"Twitter Video",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":1920,
+         "height":1080
+      },
+      "38":{
+         "title":"Pinterest Video Pin",
+         "format":7,
+         "wRatio":2,
+         "hRatio":3,
+         "width":1000,
+         "height":1500
+      },
+      "39":{
+         "title":"Facebook Event Cover",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":1920,
+         "height":1080
+      },
+      "40":{
+         "title":"Facebook Post",
+         "format":15,
+         "wRatio":1200,
+         "hRatio":630,
+         "width":1200,
+         "height":630
+      },
+      "41":{
+         "title":"Facebook Group Cover",
+         "format":17,
+         "wRatio":1600,
+         "hRatio":856,
+         "width":1640,
+         "height":856
+      },
+      "42":{
+         "title":"Facebook Story",
+         "format":3,
+         "wRatio":9,
+         "hRatio":16,
+         "width":1080,
+         "height":1920
+      },
+      "43":{
+         "title":"YouTube Banner",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":2560,
+         "height":1440
+      },
+      "44":{
+         "title":"YouTube End Screen",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":1920,
+         "height":1080
+      },
+      "45":{
+         "title":"YouTube Channel Art",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":2560,
+         "height":1440
+      },
+      "46":{
+         "title":"Twitter Banner",
+         "format":18,
+         "wRatio":3,
+         "hRatio":1,
+         "width":1500,
+         "height":500
+      },
+      "47":{
+         "title":"Linkedln Post",
+         "format":10,
+         "wRatio":1200,
+         "hRatio":628,
+         "width":1200,
+         "height":628
+      },
+      "48":{
+         "title":"Linkedln Personal Banner",
+         "format":19,
+         "wRatio":4,
+         "hRatio":1,
+         "width":1584,
+         "height":396
+      },
+      "49":{
+         "title":"Linkedln Personal Banner",
+         "format":20,
+         "wRatio":2,
+         "hRatio":1,
+         "width":1536,
+         "height":768
+      },
+      "50":{
+         "title":"Twitch Cover Image",
+         "format":21,
+         "wRatio":5,
+         "hRatio":2,
+         "width":1200,
+         "height":480
+      },
+      "51":{
+         "title":"Twitch offline Banner",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":1920,
+         "height":1080
+      },
+      "52":{
+         "title":"Twitch Panel",
+         "format":20,
+         "wRatio":2,
+         "hRatio":1,
+         "width":320,
+         "height":160
+      },
+      "53":{
+         "title":"Resume",
+         "format":12,
+         "wRatio":5,
+         "hRatio":7,
+         "width":2480,
+         "height":3508
+      },"54":{
+        "title":"Brochure",
+        "format":22,
+        "wRatio":3508,
+        "hRatio":2480,
+        "width":3508,
+        "height":2480
+     },
+      "55":{
+         "title":"Invoice",
+         "format":12,
+         "wRatio":5,
+         "hRatio":7,
+         "width":2480,
+         "height":3508
+      },
+      "56":{
+        "title":"Calender",
+        "format":1,
+        "wRatio":16,
+        "hRatio":9,
+        "width":1920,
+        "height":1080
+     }, "57":{
+        "title":"Instagram Ad",
+        "format":2,
+        "wRatio":1,
+        "hRatio":1,
+        "width":1080,
+        "height":1080
+     }, "58":{
+        "title":"Twitter Ad",
+        "format":19,
+        "wRatio":4,
+        "hRatio":1,
+        "width":1600,
+        "height":400
+     }, "59":{
+        "title":"Wide Skycraper Ad",
+        "format":23,
+        "wRatio":4,
+        "hRatio":15,
+        "width":160,
+        "height":600
+     },"60":{
+        "title":"Leaderboard Ad",
+        "format":24,
+        "wRatio":364,
+        "hRatio":45,
+        "width":728,
+        "height":90
+     },"61":{
+        "title":"Billboard Ad",
+        "format":25,
+        "wRatio":97,
+        "hRatio":25,
+        "width":970,
+        "height":250
+     },"62":{
+        "title":"Wide Skycraper Ad",
+        "format":26,
+        "wRatio":6,
+        "hRatio":5,
+        "width":300,
+        "height":250
+     },"63":{
+        "title":"Large Rectangle Ad",
+        "format":27,
+        "wRatio":6,
+        "hRatio":5,
+        "width":336,
+        "height":280
+     },"64":{
+        "title":"Mobile Leaderboard",
+        "format":28,
+        "wRatio":32,
+        "hRatio":5,
+        "width":320,
+        "height":50
+     },
+      "65":{
+         "title":"Facebook Cover Photo",
+         "format":16,
+         "wRatio":205,
+         "hRatio":78,
+         "width":820,
+         "height":312
+      },"66":{
+        "title":"Facebook Cover Photo",
+        "format":16,
+        "wRatio":205,
+        "hRatio":78,
+        "width":820,
+        "height":312
+     },"67":{
+        "title":"Facebook Feed Landscape",
+        "format":1,
+        "wRatio":1280,
+        "hRatio":720,
+        "width":1280,
+        "height":720
+     },"68":{
+        "title":"Facebook Feed Portrait",
+        "format":3,
+        "wRatio":720,
+        "hRatio":1280,
+        "width":720,
+        "height":1280
+     },"69":{
+        "title":"Facebook Feed Story",
+        "format":3,
+        "wRatio":720,
+        "hRatio":1280,
+        "width":720,
+        "height":1280
+     },"70":{
+        "title":"Instagram Reels",
+        "format":3,
+        "wRatio":1080,
+        "hRatio":1920,
+        "width":1080,
+        "height":1920
+     },"71":{
+        "title":"Instagram Portrait",
+        "format":8,
+        "wRatio":1080,
+        "hRatio":1350,
+        "width":1080,
+        "height":1350
+     },"72":{
+        "title":"Instagram Landscape",
+        "format":30,
+        "wRatio":1200,
+        "hRatio":608,
+        "width":1200,
+        "height":608
+     },"73":{
+        "title":"Instagram IGTV",
+        "format":8,
+        "wRatio":1080,
+        "hRatio":1350,
+        "width":1080,
+        "height":1350
+     },"74":{
+        "title":"Instagram IGTV",
+        "format":3,
+        "wRatio":1080,
+        "hRatio":1920,
+        "width":1080,
+        "height":1920
+     },"75":{
+        "title":"Linkedln Video Ad",
+        "format":1,
+        "wRatio":1920,
+        "hRatio":1080,
+        "width":1920,
+        "height":1080
+     },"76":{
+        "title":"Linkedln Square",
+        "format":2,
+        "wRatio":1,
+        "hRatio":1,
+        "width":1920,
+        "height":1920
+     },"77":{
+        "title":"Linkedln Story",
+        "format":3,
+        "wRatio":1080,
+        "hRatio":1920,
+        "width":1080,
+        "height":1920
+     },"78":{
+        "title":"Twitter Landscape",
+        "format":1,
+        "wRatio":1280,
+        "hRatio":720,
+        "width":1280,
+        "height":720
+     },"79":{
+        "title":"Twitter Portrait",
+        "format":3,
+        "wRatio":720,
+        "hRatio":1280,
+        "width":720,
+        "height":1280
+     },"80":{
+        "title":"Twitter Square",
+        "format":2,
+        "wRatio":1,
+        "hRatio":1,
+        "width":1200,
+        "height":1200
+     },"81":{
+        "title":"Pinterest Square",
+        "format":2,
+        "wRatio":1,
+        "hRatio":1,
+        "width":1080,
+        "height":1080
+     },"82":{
+        "title":"Pinterest Vertical",
+        "format":3,
+        "wRatio":1080,
+        "hRatio":1920,
+        "width":1080,
+        "height":1920
+     },"83":{
+        "title":"Snapchat Video",
+        "format":3,
+        "wRatio":1080,
+        "hRatio":1920,
+        "width":1080,
+        "height":1920
+     },"84":{
+        "title":"Wide screen",
+        "format":1,
+        "wRatio":1920,
+        "hRatio":1080,
+        "width":1920,
+        "height":1080
+     },"85":{
+        "title":"Square",
+        "format":2,
+        "wRatio":1,
+        "hRatio":1,
+        "width":1080,
+        "height":1080
+     },"86":{
+        "title":"Phone",
+        "format":3,
+        "wRatio":1080,
+        "hRatio":1920,
+        "width":1080,
+        "height":1920
+     },
+     "87":{
+      "title":"Poster Large",
+      "format":7,
+      "wRatio":2,
+      "hRatio":3,
+      "width":2304,
+      "height":3456
+    }
+   },
+   "FORMATS":{
+      "0":{
+         "title":"Custom",
+         "format":0,
+         "wRatio":0,
+         "hRatio":0,
+         "width":0,
+         "height":0
+      },
+      "1":{
+         "title":"Landscape",
+         "format":1,
+         "wRatio":16,
+         "hRatio":9,
+         "width":1920,
+         "height":1080
+      },
+      "2":{
+         "title":"Square",
+         "format":2,
+         "wRatio":1,
+         "hRatio":1,
+         "width":1080,
+         "height":1080
+      },
+      "3":{
+         "title":"Portrait",
+         "format":3,
+         "wRatio":9,
+         "hRatio":16,
+         "width":607,
+         "height":1080
+      }, "7":{
+         "title":"Portrait",
+         "format":7,
+         "wRatio":2,
+         "hRatio":3,
+         "width":1000,
+         "height":1500
+      },
+      "8":{
+        "title":"Portrait",
+        "format":8,
+        "wRatio":4,
+        "hRatio":5,
+        "width":1080,
+        "height":1350
+     },
+     "9":{
+       "title":"Landscape",
+       "format":9,
+       "wRatio":1080,
+       "hRatio":566,
+       "width":1080,
+       "height":566
+    },
+    "30":{
+      "title":"Landscape",
+      "format":30,
+      "wRatio":1.97,
+      "hRatio":1,
+      "width":1200,
+      "height":608   
+    }   
+   },
+   "CANVAS_LAYOUTS":[
+      {
+         "title":"Standard",
+         "id":1,
+         "layoutFormats":[
+            {
+               "title":"1:1",
+               "ratioWidth":1,
+               "ratioHeight":1,
+               "width":600,
+               "id":11
+            },
+            {
+               "title":"16:9",
+               "ratioWidth":16,
+               "ratioHeight":9,
+               "width":600,
+               "id":12
+            },
+            {
+               "title":"9:16",
+               "ratioWidth":9,
+               "ratioHeight":16,
+               "width":400,
+               "id":13
+            }
+         ]
+      }
+   ],
+   "VIDEO_LAYOUTS":[
+      {
+         "title":"Social Media",
+         "id":1,
+         "layoutFormats":[
+            {
+               "title":"Facebook Video",
+               "format":2,
+               "wRatio":1,
+               "hRatio":1,
+               "width":1080,
+               "height":1080,
+               "id":1,
+               "socialPlatformId":1,
+               "iconName":"facebookslider"
+            },
+            {
+               "title":"Facebook Cover",
+               "format":1,
+               "wRatio":16,
+               "hRatio":9,
+               "width":1920,
+               "height":1080,
+               "id":2,
+               "socialPlatformId":2,
+               "iconName":"facebookslider"
+            },
+            {
+               "title":"Mobile Video",
+               "format":3,
+               "wRatio":9,
+               "hRatio":16,
+               "width":607,
+               "height":1080,
+               "id":3,
+               "socialPlatformId":3,
+               "iconName":"phoneslider"
+            },
+            {
+               "title":"Youtube Video Ad",
+               "format":1,
+               "wRatio":16,
+               "hRatio":9,
+               "width":1920,
+               "height":1080,
+               "id":4,
+               "socialPlatformId":4,
+               "iconName":"youtubeslider"
+            },
+            {
+               "title":"Instagram Story",
+               "format":3,
+               "wRatio":9,
+               "hRatio":16,
+               "width":607,
+               "height":1080,
+               "id":5,
+               "socialPlatformId":5,
+               "iconName":"Instagramslider"
+            },
+            {
+               "title":"Instagram Video",
+               "format":2,
+               "wRatio":1,
+               "hRatio":1,
+               "width":1080,
+               "height":1080,
+               "id":6,
+               "socialPlatformId":6,
+               "iconName":"Instagramslider"
+            },
+            {
+               "title":"Slideshow Video",
+               "format":1,
+               "wRatio":16,
+               "hRatio":9,
+               "width":1920,
+               "height":1080,
+               "id":7,
+               "socialPlatformId":7,
+               "iconName":"wideslider"
+            },
+            {
+               "title":"Youtube Video",
+               "format":1,
+               "wRatio":16,
+               "hRatio":9,
+               "width":1920,
+               "height":1080,
+               "id":8,
+               "socialPlatformId":8,
+               "iconName":"youtubeslider"
+            },
+            {
+               "title":"LinkedIn Video Ad",
+               "format":2,
+               "wRatio":1,
+               "hRatio":1,
+               "width":1080,
+               "height":1080,
+               "id":9,
+               "socialPlatformId":9,
+               "iconName":"linkedslider"
+            },
+            {
+               "title":"Tiktok Video",
+               "format":3,
+               "wRatio":9,
+               "hRatio":16,
+               "width":607,
+               "height":1080,
+               "id":10,
+               "socialPlatformId":10,
+               "iconName":"tiktokslider"
+            },
+            {
+               "title":"WhatsApp Status Video",
+               "format":3,
+               "wRatio":9,
+               "hRatio":16,
+               "width":607,
+               "height":1080,
+               "id":11,
+               "socialPlatformId":11,
+               "iconName":"whatsappslider"
+            }
+         ]
+      },
+      {
+         "title":"Standard",
+         "id":2,
+         "layoutFormats":[
+            {
+               "title":"Square",
+               "format":2,
+               "wRatio":1,
+               "hRatio":1,
+               "width":1080,
+               "height":1080,
+               "id":12,
+               "socialPlatformId":12,
+               "iconName":"squareslider"
+            },
+            {
+               "title":"Wide screen",
+               "format":1,
+               "wRatio":16,
+               "hRatio":9,
+               "width":1920,
+               "height":1080,
+               "id":13,
+               "socialPlatformId":13,
+               "iconName":"wideslider"
+            },
+            {
+               "title":"Phone",
+               "format":3,
+               "wRatio":9,
+               "hRatio":16,
+               "width":607,
+               "height":1080,
+               "id":14,
+               "socialPlatformId":14,
+               "iconName":"phoneslider"
+            }
+         ]
+      }
+   ],
+   "DESIGN_LAYOUTS":[
+      {
+         "title":"Popular",
+         "id":1,
+         "layoutFormats":[
+            {
+               "title":"Square",
+               "format":2,
+               "wRatio":1,
+               "hRatio":1,
+               "width":1080,
+               "height":1080,
+               "id":1,
+               "socialPlatformId":8,
+               "iconName":"squareslider"
+            },
+            {
+               "title":"Instagram Story",
+               "format":3,
+               "wRatio":9,
+               "hRatio":16,
+               "width":1080,
+               "height":1920,
+               "id":2,
+               "socialPlatformId":9,
+               "iconName":"Instagramslider"
+            },
+            {
+               "title":"Instagram Post",
+               "format":2,
+               "wRatio":1,
+               "hRatio":1,
+               "width":1080,
+               "height":1080,
+               "id":3,
+               "socialPlatformId":6,
+               "iconName":"Instagramslider"
+            },
+            {
+               "title":"Facebook Post",
+               "format":10,
+               "wRatio":1200,
+               "hRatio":628,
+               "width":1200,
+               "height":628,
+               "id":4,
+               "socialPlatformId":19,
+               "iconName":"facebookslider"
+            },
+            {
+               "title":"Youtube Thumbnail",
+               "format":1,
+               "wRatio":16,
+               "hRatio":9,
+               "width":1280,
+               "height":720,
+               "id":5,
+               "socialPlatformId":4,
+               "iconName":"youtubeslider"
+            },
+            {
+               "title":"Poster",
+               "format":11,
+               "wRatio":11,
+               "hRatio":17,
+               "width":1650,
+               "height":2550,
+               "id":6,
+               "socialPlatformId":20,
+               "iconName":"posterslider"
+            },
+            {
+               "title":"Landscape",
+               "format":6,
+               "wRatio":3,
+               "hRatio":2,
+               "width":2048,
+               "height":1365,
+               "id":7,
+               "socialPlatformId":14,
+               "iconName":"landscapeslider"
+            }
+         ]
+      },
+      {
+         "title":"Social Media",
+         "id":2,
+         "layoutFormats":[
+            {
+               "title":"Instagram Post",
+               "format":2,
+               "wRatio":1,
+               "hRatio":1,
+               "width":1080,
+               "height":1080,
+               "id":8,
+               "socialPlatformId":8,
+               "iconName":"Instagramslider"
+            },
+            {
+               "title":"Instagram Story",
+               "format":3,
+               "wRatio":9,
+               "hRatio":16,
+               "width":1080,
+               "height":1920,
+               "id":9,
+               "socialPlatformId":9,
+               "iconName":"Instagramslider"
+            },
+            {
+               "title":"Instagram Portrait ",
+               "format":8,
+               "wRatio":4,
+               "hRatio":5,
+               "width":1080,
+               "height":1350,
+               "id":10,
+               "socialPlatformId":17,
+               "iconName":"Instagramslider"
+            },
+            {
+               "title":"Instagram Landscape",
+               "format":9,
+               "wRatio":1080,
+               "hRatio":566,
+               "width":1080,
+               "height":566,
+               "id":11,
+               "socialPlatformId":18,
+               "iconName":"Instagramslider"
+            },
+            {
+               "title":"Facebook Square",
+               "format":2,
+               "wRatio":1,
+               "hRatio":1,
+               "width":1200,
+               "height":1200,
+               "id":12,
+               "socialPlatformId":7,
+               "iconName":"facebookslider"
+            },
+            {
+               "title":"Facebook Cover",
+               "format":1,
+               "wRatio":16,
+               "hRatio":9,
+               "width":1600,
+               "height":900,
+               "id":13,
+               "socialPlatformId":2,
+               "iconName":"facebookslider"
+            },
+            {
+               "title":"Facebook Ad",
+               "format":10,
+               "wRatio":1200,
+               "hRatio":628,
+               "width":1200,
+               "height":628,
+               "id":14,
+               "socialPlatformId":19,
+               "iconName":"facebookslider"
+            },
+            {
+               "title":"YouTube Thumbnail ",
+               "format":1,
+               "wRatio":16,
+               "hRatio":9,
+               "width":1280,
+               "height":720,
+               "id":15,
+               "socialPlatformId":4,
+               "iconName":"youtubeslider"
+            },
+            {
+               "title":"YouTube Cover",
+               "format":1,
+               "wRatio":16,
+               "hRatio":9,
+               "width":2560,
+               "height":1440,
+               "id":16,
+               "socialPlatformId":1,
+               "iconName":"youtubeslider"
+            },
+            {
+               "title":"Pinterest Pin",
+               "format":7,
+               "wRatio":2,
+               "hRatio":3,
+               "width":1000,
+               "height":1500,
+               "id":17,
+               "socialPlatformId":15,
+               "iconName":"Pinterestslider"
+            },
+            {
+               "title":"WhatsApp Status",
+               "format":3,
+               "wRatio":9,
+               "hRatio":16,
+               "width":1080,
+               "height":1920,
+               "id":18,
+               "socialPlatformId":10,
+               "iconName":"whatsappslider"
+            },
+            {
+               "title":"Twitter Post",
+               "format":1,
+               "wRatio":16,
+               "hRatio":9,
+               "width":1600,
+               "height":900,
+               "socialPlatformId":3,
+               "id":19,
+               "iconName":"twitterslider"
+            }
+         ]
+      },
+      {
+         "title":"Standard",
+         "id":3,
+         "layoutFormats":[
+            {
+               "title":"Square",
+               "format":2,
+               "wRatio":1,
+               "hRatio":1,
+               "width":1080,
+               "height":1080,
+               "id":20,
+               "socialPlatformId":8,
+               "iconName":"squareslider"
+            },
+            {
+               "title":"Landscape",
+               "format":6,
+               "wRatio":3,
+               "hRatio":2,
+               "width":2048,
+               "height":1365,
+               "id":21,
+               "socialPlatformId":14,
+               "iconName":"landscapeslider"
+            },
+            {
+               "title":"Slide",
+               "format":4,
+               "wRatio":4,
+               "hRatio":3,
+               "width":2048,
+               "height":1536,
+               "id":22,
+               "socialPlatformId":12,
+               "iconName":"slideslider"
+            },
+            {
+               "title":"Wide screen",
+               "format":1,
+               "wRatio":16,
+               "hRatio":9,
+               "width":1920,
+               "height":1080,
+               "id":23,
+               "socialPlatformId":5,
+               "iconName":"wideslider"
+            },
+            {
+               "title":"Portrait",
+               "format":7,
+               "wRatio":2,
+               "hRatio":3,
+               "width":1000,
+               "height":1500,
+               "id":24,
+               "socialPlatformId":16,
+               "iconName":"portratslider"
+            },
+            {
+               "title":"Phone",
+               "format":3,
+               "wRatio":9,
+               "hRatio":16,
+               "width":1080,
+               "height":1920,
+               "id":25,
+               "socialPlatformId":11,
+               "iconName":"phoneslider"
+            }
+         ]
+      },
+      {
+         "title":"Print",
+         "id":4,
+         "layoutFormats":[
+            {
+               "title":"Letter",
+               "format":13,
+               "wRatio":17,
+               "hRatio":22,
+               "width":2550,
+               "height":3300,
+               "id":26,
+               "socialPlatformId":25,
+               "iconName":"letterslider"
+            },
+            {
+               "title":"Poster",
+               "format":11,
+               "wRatio":11,
+               "hRatio":17,
+               "width":1650,
+               "height":2550,
+               "id":27,
+               "socialPlatformId":20,
+               "iconName":"posterslider"
+            },
+            {
+               "title":"Card",
+               "format":12,
+               "wRatio":5,
+               "hRatio":7,
+               "width":1500,
+               "height":2100,
+               "id":28,
+               "socialPlatformId":21,
+               "iconName":"cardslider"
+            },
+            {
+               "title":"A5",
+               "format":12,
+               "wRatio":5,
+               "hRatio":7,
+               "width":1748,
+               "height":2480,
+               "id":29,
+               "socialPlatformId":24,
+               "iconName":"asizeslider"
+            },
+            {
+               "title":"A4",
+               "format":12,
+               "wRatio":5,
+               "hRatio":7,
+               "width":2480,
+               "height":3508,
+               "id":30,
+               "socialPlatformId":23,
+               "iconName":"asizeslider"
+            },
+            {
+               "title":"A3",
+               "format":12,
+               "wRatio":5,
+               "hRatio":7,
+               "width":1754,
+               "height":2480,
+               "id":31,
+               "socialPlatformId":22,
+               "iconName":"asizeslider"
+            }
+         ]
+      },
+      {
+         "title":"Custom",
+         "id":0,
+         "layoutFormats":[
+            {
+               "title":"Custom",
+               "format":0,
+               "wRatio":0,
+               "hRatio":0,
+               "width":0,
+               "height":0,
+               "id":0,
+               "socialPlatformId":26,
+               "iconName":""
+            }
+         ]
+      }
+   ]    
+}
