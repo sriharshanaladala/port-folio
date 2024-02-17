@@ -10,7 +10,7 @@ box-sizing: border-box;
 }
 .portfolio_page{
     display: grid;
-    grid-template-rows: 100px 1050px 1000px 1000px 900px;
+    grid-template-rows: 100px 1050px 1000px 500px 700px;
     margin: 0px;
 }
 .portfolio_page div{
@@ -50,6 +50,7 @@ ul{
     position: relative;
     left:500px;
     top: -60px;
+    /* flex-wrap: wrap; */
 
 }
 li a{
@@ -269,16 +270,16 @@ li a:hover{
   }
   .skills-container{
     position: relative;
-    top: 200px;
+    top: 100px;
   }
   #page5{
     position: relative;
-    top: 120px;
+    top: 220px;
   }
   main {
     padding: 20px;
     position: relative;
-    top: 200px;
+    top: 350px;
   }
   
   .contact-info {
@@ -307,37 +308,108 @@ li a:hover{
     height: 50px;
   }
   
-  .contact-form form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .contact-form label {
-    margin-bottom: 10px;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .contact-form button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+
+
   footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px 0;
     position: relative;
-    top: 140px;
+    top: 340px;
+    left: 10px;
   }
+  .menu-items{
+    /* display: block; */
+    /* display: flex; */
+  }
+  .menu-icon {
+    display: none; /*Initially hide the menu icon*/
+}
+
+/* Media  queries for responsiveness */
+/* When the screen is less than 600 pixels wide, make everything appear on one line/column and stack vertically. */
+/* Make the navbar toggle appear on small devices (sm) by adding the class "navbar-toggle" to each link in the navigation bar. The "navbar-toggle" class triggers the
+/* When the screen is less than 600 pixels wide, make everything appear vertically stacked (column) instead of horizontally stacked (row). */
+/* Make the navbar toggle appear on small devices (like phones) when the page loads, and then fade it out if it's not needed. */
+/* Make the navbar toggleable by adding a media query to make it visible on screens that  are 600 pixels wide or less. Hide the navbar links and use a h
+/* Make the navbar toggle appear on small devices (sm) by adding the class "navbar-toggle" to each link in the navigation bar. The "navbar-toggle" class triggers the
+/* Make the navbar toggle appear on small devices (screen sizes less than 768px) */
+@media screen and (max-width: 768px){
+    html {
+        overflow-x: hidden !important;
+    }
+  /* header, .nav-wrapper, .social-icons, .menu-icon, .menu-items {
+      display: inline-block;
+      /* float: none; */
+  /* } */ 
+
+
+  .menu-icon {
+      display: inline-block; /*Show the menu icon when the viewport is smaller than 768px*/
+      float: right; /*Float the menu icon to the right of the header content*/
+      position: relative;
+      left:-900px;
+      top: 30px;
+  }
+
+  .logo{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: white;
+    /* border: 1px solid black; */
+    display: inline-block;
+    width:fit-content;
+    margin-left: 30px;
+    margin-top: 40px;
+    box-shadow: 0px 0px 12px blue;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+  
+.header{
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(63, 33, 255);
+    box-shadow:0px 0px 150px 30px rgb(0, 0, 0) ;
+    height: 100px;
+    grid-row: 1/2;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+ul{
+    display: none;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+}
+.photo{
+    background-image: url(./images/formalphot.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid white;
+    /* border-radius: 25px 50% 30px 50% ; */
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    left: 50px;
+    top: 150px;
+    box-shadow: 0px 0px 100px 10px rgb(0, 0, 0);
+}
+.about{
+    width: 500px;
+    position: relative;
+    left: 20px;
+    top: -200px;
+    font-size: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.p3{
+    width: 500px!important;;
+    left: 20px!important;
+}
+}
