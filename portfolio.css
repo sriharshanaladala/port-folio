@@ -355,7 +355,7 @@ li a:hover{
 
   .logo{
     font-family:'Times New Roman', Times, serif;
-    font-size: 20px;
+    font-size: 15px;
     color: white;
     /* border: 1px solid black; */
     display: inline-block;
@@ -401,7 +401,7 @@ ul{
     box-shadow: 0px 0px 100px 10px rgb(0, 0, 0);
 }
 .about{
-    width: 500px;
+    width: 400px;
     position: relative;
     left: 20px;
     top: -200px;
@@ -409,7 +409,7 @@ ul{
     font-family: 'Josefin Sans', sans-serif;
 }
 .p3{
-    width: 500px!important;;
+    width: 400px!important;;
     left: 20px!important;
 }
 }
