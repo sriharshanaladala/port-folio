@@ -14,7 +14,7 @@ box-sizing: border-box;
     margin: 0px;
 }
 .portfolio_page .project{
-    border: 1px solid rgb(250, 249, 249);
+    /* border: 1px solid rgb(250, 249, 249); */
 }
 
 .logo{
@@ -231,7 +231,7 @@ li a:hover{
     top: 800px;
 }
 .project .row{
-    border: 1px solid white;
+    /* border: 1px solid white; */
     width: 1300px;
     position: relative;
     left: 20px;
@@ -362,14 +362,21 @@ li a:hover{
 }
 .col{
     width: 400px!important;
-    height: 500px;
+    height: 550px;
     /* font: 15px!important; */
     position: relative;
-    left: 100px;
+    left: 60px;
 
 }
 .text{
     font-size: 13px;
+}
+.carousel-control-prev{
+    z-index: 0!important;
+}
+.carousel-control-next{
+    z-index: 0!important;
+
 }
 /* Media  queries for responsiveness */
 /* When the screen is less than 600 pixels wide, make everything appear on one line/column and stack vertically. */
@@ -424,6 +431,7 @@ li a:hover{
     width: 100%;
     z-index: 1;
 }
+
 ul{
     display: none;
     list-style: none;
@@ -444,6 +452,19 @@ ul{
     left: 50px;
     top: 150px;
     box-shadow: 0px 0px 100px 10px rgb(0, 0, 0);
+}
+.name{
+    font-size: 40px;
+    position: relative;
+    left:800px;
+    top: -300px;
+    text-decoration: dashed;
+    border: 1px solid white;
+    max-width: fit-content;
+    margin-bottom: 0px;
+    box-sizing: border-box;
+    padding: 10px;
+
 }
 .about{
     width: 300px;
