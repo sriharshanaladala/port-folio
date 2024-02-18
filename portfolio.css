@@ -1,5 +1,5 @@
 *{
-    overflow-x:unset;
+    /* overflow-x:hidden; */
 }
 body{
 margin: 0px;
@@ -13,9 +13,10 @@ box-sizing: border-box;
     grid-template-rows: 100px 1050px 1000px 900px 900px;
     margin: 0px;
 }
-.portfolio_page div{
-    /* border: 1px solid rgb(250, 249, 249); */
+.portfolio_page .project{
+    border: 1px solid rgb(250, 249, 249);
 }
+
 .logo{
     font-family:'Times New Roman', Times, serif;
     font-size: 20px;
@@ -229,6 +230,12 @@ li a:hover{
     position: relative;
     top: 800px;
 }
+.project .row{
+    border: 1px solid white;
+    width: 1300px;
+    position: relative;
+    left: 20px;
+}
 .bdr{
     position: relative;
     top: 100px;
@@ -336,6 +343,7 @@ li a:hover{
     position: relative;
     top: 340px;
     left: 0px;
+    margin-right: 0px;
   }
   .menu-items{
     /* display: block; */
