@@ -10,7 +10,7 @@ box-sizing: border-box;
 }
 .portfolio_page{
     display: grid;
-    grid-template-rows: 100px 1050px 1000px 500px 700px;
+    grid-template-rows: 100px 1050px 1000px 900px 900px;
     margin: 0px;
 }
 .portfolio_page div{
@@ -236,6 +236,24 @@ li a:hover{
 .col{
     width: 450px!important;
 }
+.click{
+    border: unset;
+    background-color: unset;
+    color: red;
+    font-size: large;
+    /* box-sizing: content-box; */
+    animation-name: readmore;
+    animation-duration:2s;
+    animation-iteration-count: infinite;
+    /* box-sizing: border-box; */
+}
+.click:hover{
+    /* box-sizing: content-box; */
+    cursor: pointer;
+    font-size: 20px;
+    /* font-size: larger; */
+    /* letter-spacing: 3px; */
+}
 .skills-cloud {
     background-color: #f5f5f5;
     padding: 4rem 2rem;
@@ -266,15 +284,15 @@ li a:hover{
   #page4{
     margin-top: 600px;
     position: relative;
-    top: 100px;
+    top: 300px;
   }
   .skills-container{
     position: relative;
-    top: 100px;
+    top: 200px;
   }
   #page5{
     position: relative;
-    top: 220px;
+    top: 350px;
   }
   main {
     padding: 20px;
@@ -287,7 +305,7 @@ li a:hover{
     margin: 0 auto;
     margin-bottom: 20px;
     position: relative;
-    top: 300px;
+    top: 500px;
   }
   
   .contact-info p {
@@ -317,7 +335,7 @@ li a:hover{
     padding: 10px 0;
     position: relative;
     top: 340px;
-    left: 10px;
+    left: 0px;
   }
   .menu-items{
     /* display: block; */
@@ -326,7 +344,25 @@ li a:hover{
   .menu-icon {
     display: none; /*Initially hide the menu icon*/
 }
+/* #article{
+    width: 200px!important;
+} */
 
+#myedu{
+    position: relative;
+    top: 200px;
+}
+.col{
+    width: 400px!important;
+    height: 500px;
+    /* font: 15px!important; */
+    position: relative;
+    left: 100px;
+
+}
+.text{
+    font-size: 13px;
+}
 /* Media  queries for responsiveness */
 /* When the screen is less than 600 pixels wide, make everything appear on one line/column and stack vertically. */
 /* Make the navbar toggle appear on small devices (sm) by adding the class "navbar-toggle" to each link in the navigation bar. The "navbar-toggle" class triggers the
