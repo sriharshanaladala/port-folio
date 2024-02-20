@@ -404,12 +404,20 @@ li a:hover{
       top: 30px;
       
   }
- 
+  .menu-items{
+    margin-left: 250px;
+    /* Adjust the margin-left to match the width of your sidebar */
+    padding: 40px;
+    position: fixed;
+  }
+  .menu-items li{
+    padding: 20px;
+  }
   .logo{
     font-family:'Times New Roman', Times, serif;
     font-size: 15px;
     color: white;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: inline-block;
     width:fit-content;
     margin-left: 30px;
@@ -431,7 +439,22 @@ li a:hover{
     width: 100%;
     z-index: 1000;
 }
-
+.sidebar {
+    width: 180px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #474747;
+    transition: left 0.3s ease;
+  }
+  .toggle-btn{
+    position: fixed;
+    left: 300px;
+    top: 40px;
+    cursor: pointer;
+    z-index: 1001;
+  }
 ul{
     display: none;
     /* list-style: none; */

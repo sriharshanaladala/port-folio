@@ -17,10 +17,10 @@
         <div class="header"> 
             <nav>
                 <p class="logo">SRIHARSHA NALADALA</p>
-                <div class="menu-icon">
+                <div class="menu-icon toggle-btn">
                   <i class="fas fa-bars"></i>
               </div>
-                <ul class="menu-items">
+                <ul class="menu-items sidebar">
                     <li><a href="#myhome">Home</a></li>
                     <li><a href="#page2">Portfolio</a></li>
                     <li><a href="#page3">Education</a></li>
@@ -358,7 +358,9 @@ let  navbarCollapse = document.querySelector(".menu-items");
 /* When someone clicks on the button, toggle between hiding and showing the dropdown content */
 navbarToggler.addEventListener( "click", (e)=>{
   e.preventDefault();
+  navbarToggler.style.cssText="display:none;"
   console.log("menu bar clicked");
+  
   if(navbarCollapse.classList.contains("show")){
       navbarCollapse.classList.remove("show")
   }else{
