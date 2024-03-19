@@ -71,6 +71,10 @@ li:hover{
 li a:hover{
     color: blue;
 }
+/* .allbody{
+    display: flex;
+    flex-direction: column;
+} */
 .photo{
     background-image: url(./images/formalphot.jpg);
     background-position: center;
@@ -437,16 +441,17 @@ li a:hover{
     grid-row: 1/2;
     position: fixed!important;
     width: 100%;
-    z-index: 1000;
+    z-index:1000;
 }
 .sidebar {
     width: 180px;
     height: 100%;
-    position: fixed;
+    position: fixed!important;
     top: 0;
     left: -250px;
     background-color: #474747;
     transition: left 0.3s ease;
+    /* z-index: -1000; */
   }
   .toggle-btn{
     position: fixed;
