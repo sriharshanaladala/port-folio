@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Products>
+    <Product>
+        <entity>
+            <id>1</id>
+            <title>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</title>
+            <price>109.95</price>
+            <description>Your perfect pack for everyday use and walks in the city, including a padded sleeve for 15-inch laptops.</description>
+            <category>men's clothing</category>
+            <image>https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg</image>
+            <custom1></custom1>
+            <custom2></custom2>
+            <custom3></custom3>
+            <custom4></custom4>
+            <custom5></custom5>
+            <custom6></custom6>
+            <custom7></custom7>
+            <custom8></custom8>
+            <custom9></custom9>
+            <custom10></custom10>
+            <custom11></custom11>
+            <custom12></custom12>
+            <custom13></custom13>
+        </entity>
+    </Product>
+    <Product>
+        <entity>
+            <id>2</id>
+            <title>Mens Casual Premium Slim Fit T-Shirts</title>
+            <price>22.3</price>
+            <description>Slim-fitting style, contrast raglan long sleeve, three-button placket.</description>
+            <category>men's clothing</category>
+            <image>https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg</image>
+            <custom1></custom1>
+            <custom2></custom2>
+            <custom3></custom3>
+            <custom4></custom4>
+            <custom5></custom5>
+            <custom6></custom6>
+            <custom7></custom7>
+            <custom8></custom8>
+            <custom9></custom9>
+            <custom10></custom10>
+            <custom11></custom11>
+            <custom12></custom12>
+            <custom13></custom13>
+        </entity>
+    </Product>
+    <Product>
+        <entity>
+            <id>3</id>
+            <title>Mens Cotton Jacket</title>
+            <price>55.99</price>
+            <description>Great outerwear jackets for Spring/Autumn/Winter, stylish for casual or formal wear.</description>
+            <category>men's clothing</category>
+            <image>https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg</image>
+            <custom1></custom1>
+            <custom2></custom2>
+            <custom3></custom3>
+            <custom4></custom4>
+            <custom5></custom5>
+            <custom6></custom6>
+            <custom7></custom7>
+            <custom8></custom8>
+            <custom9></custom9>
+            <custom10></custom10>
+            <custom11></custom11>
+            <custom12></custom12>
+            <custom13></custom13>
+        </entity>
+    </Product>
+    <Product>
+        <entity>
+            <id>4</id>
+            <title>Mens Casual Slim Fit</title>
+            <price>15.99</price>
+            <description>Slight color variation possible due to different screen settings.</description>
+            <category>men's clothing</category>
+            <image>https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg</image>
+            <custom1></custom1>
+            <custom2></custom2>
+            <custom3></custom3>
+            <custom4></custom4>
+            <custom5></custom5>
+            <custom6></custom6>
+            <custom7></custom7>
+            <custom8></custom8>
+            <custom9></custom9>
+            <custom10></custom10>
+            <custom11></custom11>
+            <custom12></custom12>
+            <custom13></custom13>
+        </entity>
+    </Product>
+</Products>
